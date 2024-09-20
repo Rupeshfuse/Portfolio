@@ -1,1034 +1,790 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Rupesh Fuse - Full Stack Web Developer</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
-    <style>
-      :root {
-        --bg-primary: #1a202c;
-        --bg-secondary: #2d3748;
-        --text-primary: #ffffff;
-        --text-secondary: #a0aec0;
-        --accent-color: #4299e1;
-      }
 
-      .light-mode {
-        --bg-primary: #ffffff;
-        --bg-secondary: #f7fafc;
-        --text-primary: #000000;
-        --text-secondary: #4a5568;
-        --accent-color: #3182ce;
-      }
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rupesh Fuse - Full Stack Web Developer</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
+  <style>
+    :root {
+      --bg-primary: #1a202c;
+      --bg-secondary: #2d3748;
+      --text-primary: #ffffff;
+      --text-secondary: #a0aec0;
+      --accent-color: #4299e1;
+    }
 
-      body {
-        background-color: var(--bg-primary);
-        color: var(--text-primary);
-        transition: background-color 0.3s, color 0.3s;
-      }
+    .light-mode {
+      --bg-primary: #ffffff;
+      --bg-secondary: #f7fafc;
+      --text-primary: #000000;
+      --text-secondary: #4a5568;
+      --accent-color: #3182ce;
+    }
 
-      .bg-primary {
-        background-color: var(--bg-primary);
-      }
+    .skill-hexagon {
+      width: 120px;
+      height: 138px;
+      background-color: var(--bg-secondary);
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin: 10px;
+      transition: all 0.3s ease;
+    }
 
-      .bg-secondary {
-        background-color: var(--bg-secondary);
-      }
+    .skill-hexagon img {
+      width: 50px;
+      height: 50px;
+      margin-bottom: 10px;
+    }
 
-      .text-primary {
-        color: var(--text-primary);
-      }
+    body {
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
+      transition: background-color 0.3s, color 0.3s;
+    }
 
-      .text-secondary {
-        color: var(--text-secondary);
-      }
+    .bg-primary {
+      background-color: var(--bg-primary);
+    }
 
-      .accent-color {
-        color: var(--accent-color);
-      }
+    .bg-secondary {
+      background-color: var(--bg-secondary);
+    }
 
-      .profile-photo {
-        width: 100%;
-        max-width: 300px;
-        height: auto;
-        border-radius: 50%;
-        overflow: hidden;
-        position: relative;
-        margin: 0 auto;
-        box-shadow: 0 0 50px rgba(66, 153, 225, 0.5);
-      }
+    .text-primary {
+      color: var(--text-primary);
+    }
 
-      .profile-photo img {
-        width: 100%;
-        height: auto;
-        object-fit: cover;
-        transition: transform 0.3s ease-in-out;
-      }
+    .text-secondary {
+      color: var(--text-secondary);
+    }
 
-      .profile-photo:hover img {
-        transform: scale(1.1);
-      }
+    .accent-color {
+      color: var(--accent-color);
+    }
 
+    .profile-photo {
+      width: 100%;
+      max-width: 300px;
+      height: auto;
+      border-radius: 50%;
+      overflow: hidden;
+      position: relative;
+      margin: 0 auto;
+      box-shadow: 0 0 50px rgba(66, 153, 225, 0.5);
+    }
+
+    .profile-photo img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .profile-photo:hover img {
+      transform: scale(1.1);
+    }
+
+    .skill-hexagon {
+      width: 120px;
+      height: 138px;
+      background-color: var(--bg-secondary);
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 10px;
+      transition: all 0.3s ease;
+    }
+
+    .skill-hexagon:before,
+    .skill-hexagon:after {
+      content: "";
+      position: absolute;
+      width: 0;
+      border-left: 60px solid transparent;
+      border-right: 60px solid transparent;
+    }
+
+    .skill-hexagon:before {
+      bottom: 100%;
+      border-bottom: 34.6px solid var(--bg-secondary);
+    }
+
+    .skill-hexagon:after {
+      top: 100%;
+      width: 0;
+      border-top: 34.6px solid var(--bg-secondary);
+    }
+
+    .skill-hexagon:hover {
+      transform: scale(1.1);
+      background-color: var(--accent-color);
+    }
+
+    .skill-hexagon:hover:before {
+      border-bottom-color: var(--accent-color);
+    }
+
+    .skill-hexagon:hover:after {
+      border-top-color: var(--accent-color);
+    }
+
+    @media (max-width: 640px) {
       .skill-hexagon {
-        width: 120px;
-        height: 138px;
-        background-color: var(--bg-secondary);
-        position: relative;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin: 10px;
-        transition: all 0.3s ease;
+        max-width: 80px;
       }
 
-      .skill-hexagon:before,
-      .skill-hexagon:after {
-        content: "";
-        position: absolute;
-        width: 0;
-        border-left: 60px solid transparent;
-        border-right: 60px solid transparent;
+      .skill-hexagon span {
+        font-size: 0.75rem;
+      }
+    }
+
+    @media (max-width: 400px) {
+      .skill-hexagon {
+        max-width: 60px;
       }
 
-      .skill-hexagon:before {
-        bottom: 100%;
-        border-bottom: 34.6px solid var(--bg-secondary);
+      .skill-hexagon span {
+        font-size: 0.6rem;
       }
+    }
 
-      .skill-hexagon:after {
-        top: 100%;
-        width: 0;
-        border-top: 34.6px solid var(--bg-secondary);
-      }
+    .skill-hexagon:before,
+    .skill-hexagon:after {
+      border-left: 30% solid transparent;
+      border-right: 30% solid transparent;
+    }
 
-      .skill-hexagon:hover {
-        transform: scale(1.1);
-        background-color: var(--accent-color);
-      }
+    .skill-hexagon:before {
+      border-bottom: 17.3% solid var(--bg-secondary);
+    }
 
-      .skill-hexagon:hover:before {
-        border-bottom-color: var(--accent-color);
-      }
+    .skill-hexagon:after {
+      border-top: 17.3% solid var(--bg-secondary);
+    }
+  </style>
+</head>
 
-      .skill-hexagon:hover:after {
-        border-top-color: var(--accent-color);
-      }
+<body class="bg-primary text-primary transition-colors duration-300">
+  <nav class="fixed top-0 left-0 right-0 bg-secondary shadow-md z-50 transition-colors duration-300">
+    <div class="container mx-auto px-4 py-3">
+      <div class="flex justify-between items-center">
+        <a href="#" class="text-xl sm:text-2xl font-bold accent-color">RF</a>
+        <div class="hidden md:flex space-x-4 sm:space-x-6">
+          <a href="#about" class="nav-link text-sm sm:text-base">About</a>
+          <a href="#skills" class="nav-link text-sm sm:text-base">Skills</a>
+          <a href="#experience" class="nav-link text-sm sm:text-base">Experience</a>
+          <a href="#projects" class="nav-link text-sm sm:text-base">Projects</a>
+          <a href="#contact" class="nav-link text-sm sm:text-base">Contact</a>
+          <a href="#" id="downloadResume" class="nav-link text-sm sm:text-base">Resume</a>
+          <button id="darkModeToggle" class="text-yellow-400 hover:text-yellow-200 transition duration-300"
+            aria-label="Toggle Dark Mode">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+              stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+            </svg>
+          </button>
+        </div>
+        <div class="md:hidden flex items-center">
+          <button id="darkModeToggleMobile" class="text-yellow-400 hover:text-yellow-200 transition duration-300 mr-4"
+            aria-label="Toggle Dark Mode">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+              stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+            </svg>
+          </button>
+          <button id="mobileMenuToggle" class="text-primary focus:outline-none" aria-label="Toggle Mobile Menu">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+              stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div id="mobileMenu" class="hidden md:hidden bg-secondary py-2">
+      <a href="#about" class="block px-4 py-2 text-sm">About</a>
+      <a href="#skills" class="block px-4 py-2 text-sm">Skills</a>
+      <a href="#experience" class="block px-4 py-2 text-sm">Experience</a>
+      <a href="#projects" class="block px-4 py-2 text-sm">Projects</a>
+      <a href="#contact" class="block px-4 py-2 text-sm">Contact</a>
+      <a href="#" id="downloadResumeMobile" class="block px-4 py-2 text-sm">Resume</a>
+    </div>
+  </nav>
 
-      @media (max-width: 768px) {
-        .skill-hexagon {
-          width: 90px;
-          height: 103.5px;
-        }
+  <header
+    class="h-screen flex items-center justify-center bg-gradient-to-r from-blue-800 via-purple-900 to-purple-900 text-white">
+    <div class="text-center px-4" data-aos="fade-up">
+      <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6">
+        Rupesh Fuse
+      </h1>
+      <p class="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold mb-6 sm:mb-8">
+        Full Stack Web Developer
+      </p>
+      <a href="#contact"
+        class="bg-blue-500 text-white px-4 py-2 sm:px-6 sm:py-3 rounded-full hover:bg-blue-600 transition duration-300 text-sm sm:text-base">Get
+        in Touch</a>
+    </div>
+  </header>
 
-        .skill-hexagon:before,
-        .skill-hexagon:after {
-          border-left: 45px solid transparent;
-          border-right: 45px solid transparent;
-        }
+  <section id="profile-photo" class="py-20 bg-secondary">
+    <div class="container mx-auto px-6">
+      <div class="profile-photo" data-aos="zoom-in">
+        <img src="./Profile Photo.jpg" alt="Rupesh Fuse" />
+      </div>
+    </div>
+  </section>
 
-        .skill-hexagon:before {
-          border-bottom: 26px solid var(--bg-secondary);
-        }
-
-        .skill-hexagon:after {
-          border-top: 26px solid var(--bg-secondary);
-        }
-      }
-
-      @media (max-width: 640px) {
-        .skill-hexagon {
-          width: 70px;
-          height: 80.5px;
-        }
-
-        .skill-hexagon:before,
-        .skill-hexagon:after {
-          border-left: 35px solid transparent;
-          border-right: 35px solid transparent;
-        }
-
-        .skill-hexagon:before {
-          border-bottom: 20px solid var(--bg-secondary);
-        }
-
-        .skill-hexagon:after {
-          border-top: 20px solid var(--bg-secondary);
-        }
-      }
-    </style>
-  </head>
-
-  <body class="bg-primary text-primary transition-colors duration-300">
-    <nav
-      class="fixed top-0 left-0 right-0 bg-secondary shadow-md z-50 transition-colors duration-300"
-    >
-      <div class="container mx-auto px-4 py-3">
-        <div class="flex justify-between items-center">
-          <a href="#" class="text-xl sm:text-2xl font-bold accent-color">RF</a>
-          <div class="hidden md:flex space-x-4 sm:space-x-6">
-            <a href="#about" class="nav-link text-sm sm:text-base">About</a>
-            <a href="#skills" class="nav-link text-sm sm:text-base">Skills</a>
-            <a href="#experience" class="nav-link text-sm sm:text-base"
-              >Experience</a
-            >
-            <a href="#projects" class="nav-link text-sm sm:text-base"
-              >Projects</a
-            >
-            <a href="#contact" class="nav-link text-sm sm:text-base">Contact</a>
-            <a
-              href="#"
-              id="downloadResume"
-              class="nav-link text-sm sm:text-base"
-              >Resume</a
-            >
-            <button
-              id="darkModeToggle"
-              class="text-yellow-400 hover:text-yellow-200 transition duration-300"
-              aria-label="Toggle Dark Mode"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="h-5 w-5"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"
-                />
-              </svg>
-            </button>
-          </div>
-          <div class="md:hidden flex items-center">
-            <button
-              id="darkModeToggleMobile"
-              class="text-yellow-400 hover:text-yellow-200 transition duration-300 mr-4"
-              aria-label="Toggle Dark Mode"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="h-5 w-5"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"
-                />
-              </svg>
-            </button>
-            <button
-              id="mobileMenuToggle"
-              class="text-primary focus:outline-none"
-              aria-label="Toggle Mobile Menu"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="h-6 w-6"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M4 6h16M4 12h16M4 18h16"
-                />
-              </svg>
-            </button>
+  <section id="about" class="py-20 bg-primary">
+    <div class="container mx-auto px-6">
+      <h2 class="text-3xl font-bold mb-8 text-center" data-aos="fade-up">
+        About Me
+      </h2>
+      <div class="flex flex-wrap items-center">
+        <div class="w-full md:w-1/2" data-aos="fade-right">
+          <p class="text-lg mb-4">
+            Dynamic Full Stack Developer with expertise in Python, HTML5,
+            CSS3, JavaScript, React, Redux, Java, and Spring Boot. Skilled in
+            building and maintaining web applications, with a strong focus on
+            both front-end and back-end development. Known for precise
+            documentation and delivering efficient, scalable solutions.
+          </p>
+          <p class="text-lg mb-4">
+            Based in Sambhaji Nagar, Maharashtra, India, I'm passionate about
+            creating innovative web solutions and constantly expanding my
+            skillset.
+          </p>
+          <div class="flex space-x-4">
+            <a href="https://github.com/Rupeshfuse" target="_blank" rel="noopener noreferrer"
+              class="accent-color hover:text-blue-300">GitHub</a>
+            <a href="https://www.linkedin.com/in/rupeshfuse" target="_blank" rel="noopener noreferrer"
+              class="accent-color hover:text-blue-300">LinkedIn</a>
           </div>
         </div>
       </div>
-      <div id="mobileMenu" class="hidden md:hidden bg-secondary py-2">
-        <a href="#about" class="block px-4 py-2 text-sm">About</a>
-        <a href="#skills" class="block px-4 py-2 text-sm">Skills</a>
-        <a href="#experience" class="block px-4 py-2 text-sm">Experience</a>
-        <a href="#projects" class="block px-4 py-2 text-sm">Projects</a>
-        <a href="#contact" class="block px-4 py-2 text-sm">Contact</a>
-        <a href="#" id="downloadResumeMobile" class="block px-4 py-2 text-sm"
-          >Resume</a
-        >
+    </div>
+  </section>
+  <section id="skills" class="py-20 bg-secondary">
+  <div class="container mx-auto px-6">
+    <h2 class="text-3xl font-bold mb-8 text-center" data-aos="fade-up">
+      Technical Skills
+    </h2>
+    <div class="flex flex-wrap justify-center">
+      <div class="skill-hexagon" data-aos="zoom-in" data-aos-delay="100">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" />
+        <span class="text-lg font-semibold">Python</span>
       </div>
-    </nav>
-
-    <header
-      class="h-screen flex items-center justify-center bg-gradient-to-r from-blue-800 via-purple-900 to-purple-900 text-white"
-    >
-      <div class="text-center px-4" data-aos="fade-up">
-        <h1
-          class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6"
-        >
-          Rupesh Fuse
-        </h1>
-        <p
-          class="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold mb-6 sm:mb-8"
-        >
-          Full Stack Web Developer
-        </p>
-        <a
-          href="#contact"
-          class="bg-blue-500 text-white px-4 py-2 sm:px-6 sm:py-3 rounded-full hover:bg-blue-600 transition duration-300 text-sm sm:text-base"
-          >Get in Touch</a
-        >
+      <div class="skill-hexagon" data-aos="zoom-in" data-aos-delay="200">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java" />
+        <span class="text-lg font-semibold">Java</span>
       </div>
-    </header>
-
-    <section id="profile-photo" class="py-20 bg-secondary">
-      <div class="container mx-auto px-6">
-        <div class="profile-photo" data-aos="zoom-in">
-          <img src="./Profile Photo.jpg" alt="Rupesh Fuse" />
-        </div>
+      <div class="skill-hexagon" data-aos="zoom-in" data-aos-delay="300">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5" />
+        <span class="text-lg font-semibold">HTML5</span>
       </div>
-    </section>
+      <div class="skill-hexagon" data-aos="zoom-in" data-aos-delay="400">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3" />
+        <span class="text-lg font-semibold">CSS3</span>
+      </div>
+      <div class="skill-hexagon" data-aos="zoom-in" data-aos-delay="500">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"
+          alt="JavaScript" />
+        <span class="text-lg font-semibold">JavaScript</span>
+      </div>
+      <div class="skill-hexagon" data-aos="zoom-in" data-aos-delay="600">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React" />
+        <span class="text-lg font-semibold">React</span>
+      </div>
+      <div class="skill-hexagon" data-aos="zoom-in" data-aos-delay="700">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redux/redux-original.svg" alt="Redux" />
+        <span class="text-lg font-semibold">Redux</span>
+      </div>
+      <div class="skill-hexagon" data-aos="zoom-in" data-aos-delay="800">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL" />
+        <span class="text-lg font-semibold">MySQL</span>
+      </div>
+      <div class="skill-hexagon" data-aos="zoom-in" data-aos-delay="900">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node.js" />
+        <span class="text-lg font-semibold">Node.js</span>
+      </div>
+      <div class="skill-hexagon" data-aos="zoom-in" data-aos-delay="1000">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg" alt="Firebase" />
+        <span class="text-lg font-semibold">Firebase</span>
+      </div>
+      <div class="skill-hexagon" data-aos="zoom-in" data-aos-delay="1100">
+        <img src="https://hibernate.org/images/hibernate-logo.svg" alt="Hibernate"
+          style="filter: brightness(0) invert(1)" />
+        <span class="text-lg font-semibold">Hibernate</span>
+      </div>
+      <div class="skill-hexagon" data-aos="zoom-in" data-aos-delay="1200">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg" alt="Spring Boot" />
+        <span class="text-lg font-semibold">Spring Boot</span>
+      </div>
+    </div>
+  </div>
+  </section>
 
-    <section id="about" class="py-20 bg-primary">
-      <div class="container mx-auto px-6">
-        <h2 class="text-3xl font-bold mb-8 text-center" data-aos="fade-up">
-          About Me
-        </h2>
-        <div class="flex flex-wrap items-center">
-          <div class="w-full md:w-1/2" data-aos="fade-right">
-            <p class="text-lg mb-4">
-              Dynamic Full Stack Developer with expertise in Python, HTML5,
-              CSS3, JavaScript, React, Redux, Java, and Spring Boot. Skilled in
-              building and maintaining web applications, with a strong focus on
-              both front-end and back-end development. Known for precise
-              documentation and delivering efficient, scalable solutions.
+  <section id="experience" class="py-20 bg-primary">
+    <div class="container mx-auto px-6">
+      <h2 class="text-3xl font-bold mb-8 text-center" data-aos="fade-up">
+        Work Experience
+      </h2>
+      <div class="timeline" data-aos="fade-up">
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <h3 class="text-xl font-bold mb-2">Associate Developer</h3>
+            <p class="text-secondary mb-2">
+              Sapiens Technologies Private Limited - Bangalore, India
             </p>
-            <p class="text-lg mb-4">
-              Based in Sambhaji Nagar, Maharashtra, India, I'm passionate about
-              creating innovative web solutions and constantly expanding my
-              skillset.
+            <p class="text-secondary mb-4">
+              December 2022 - January 2024&nbsp;&nbsp;( 1 Year 2 Months )
             </p>
-            <div class="flex space-x-4">
-              <a
-                href="https://github.com/Rupeshfuse"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="accent-color hover:text-blue-300"
-                >GitHub</a
-              >
-              <a
-                href="https://www.linkedin.com/in/rupeshfuse"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="accent-color hover:text-blue-300"
-                >LinkedIn</a
-              >
+            <ul class="list-disc list-inside">
+              <li>
+                Developed and deployed highly scalable web applications,
+                achieving a 30% increase in user engagement and 20% reduction
+                in page load time, enhancing user experience.
+              </li>
+              <li>
+                Collaborated with cross-functional teams, including designers
+                and product managers, to deliver high-quality software
+                solutions within challenging deadlines.
+              </li>
+              <li>
+                Enhanced application responsiveness by optimizing database
+                performance, reducing query execution time by 40%.
+              </li>
+              <li>
+                Demonstrated expertise in both back-end and front-end
+                development at the document level. Played a pivotal role in
+                ensuring thorough documentation, enhancing the clarity and
+                maintainability of the codebase.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects" class="py-20 bg-secondary">
+    <div class="container mx-auto px-6">
+      <h2 class="text-3xl font-bold mb-12 text-center" data-aos="fade-up">
+        Projects
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div
+          class="project-card bg-primary rounded-lg shadow-lg overflow-hidden transform transition-all duration-300 hover:scale-105"
+          data-aos="fade-up">
+          <div class="p-6">
+            <h3 class="text-2xl font-bold mb-2">ABSA Company Insurance</h3>
+            <p class="text-secondary mb-4">
+              HTML5 | CSS3 | JavaScript | Java | Responsive Web Design | React
+              | MySQL
+            </p>
+            <ul class="list-none space-y-2 mb-4">
+              <li class="flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-green-500" viewBox="0 0 20 20"
+                  fill="currentColor">
+                  <path fill-rule="evenodd"
+                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                    clip-rule="evenodd" />
+                </svg>
+                Collaborated with a large team to implement solutions and meet
+                project requirements.
+              </li>
+              <li class="flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-green-500" viewBox="0 0 20 20"
+                  fill="currentColor">
+                  <path fill-rule="evenodd"
+                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                    clip-rule="eveno
+dd" />
+                </svg>
+                Troubleshooted and debugged issues to ensure application
+                stability and reliability.
+              </li>
+              <li class="flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-green-500" viewBox="0 0 20 20"
+                  fill="currentColor">
+                  <path fill-rule="evenodd"
+                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                    clip-rule="evenodd" />
+                </svg>
+                Contributed to the development of insurance-related features
+                like policy creation and claims processing.
+              </li>
+              <li class="flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-green-500" viewBox="0 0 20 20"
+                  fill="currentColor">
+                  <path fill-rule="evenodd"
+                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                    clip-rule="evenodd" />
+                </svg>
+                Created and maintained comprehensive documentation to support
+                ongoing development and onboarding of new team members.
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div
+          class="project-card bg-primary rounded-lg shadow-lg overflow-hidden transform transition-all duration-300 hover:scale-105"
+          data-aos="fade-up" data-aos-delay="200">
+          <div class="p-6">
+            <h3 class="text-2xl font-bold mb-2">Bangkok Insurance</h3>
+            <p class="text-secondary mb-4">
+              HTML5 | CSS3 | JavaScript | Java | Responsive Web Design | React
+              | MySQL
+            </p>
+            <ul class="list-none space-y-2 mb-4">
+              <li class="flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-green-500" viewBox="0 0 20 20"
+                  fill="currentColor">
+                  <path fill-rule="evenodd"
+                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                    clip-rule="evenodd" />
+                </svg>
+                Collaborated with a large team of developers to create and
+                claim insurance policies using modern web technologies.
+              </li>
+              <li class="flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-green-500" viewBox="0 0 20 20"
+                  fill="currentColor">
+                  <path fill-rule="evenodd"
+                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                    clip-rule="evenodd" />
+                </svg>
+                Implemented backend logic in Java to streamline policy
+                processing and database interactions using MySQL.
+              </li>
+              <li class="flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-green-500" viewBox="0 0 20 20"
+                  fill="currentColor">
+                  <path fill-rule="evenodd"
+                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                    clip-rule="evenodd" />
+                </svg>
+                Troubleshoot and debugged issues effectively to ensure the
+                smooth operation of the application.
+              </li>
+              <li class="flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-green-500" viewBox="0 0 20 20"
+                  fill="currentColor">
+                  <path fill-rule="evenodd"
+                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                    clip-rule="evenodd" />
+                </svg>
+                Created and maintained comprehensive documentation to support
+                ongoing development and onboarding of new team members.
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div
+          class="project-card bg-primary rounded-lg shadow-lg overflow-hidden transform transition-all duration-300 hover:scale-105"
+          data-aos="fade-up">
+          <div class="p-6">
+            <h3 class="text-2xl font-bold mb-2">
+              Clone of E-Commerce Website
+            </h3>
+            <p class="text-secondary mb-4">
+              HTML5 | CSS3 | JavaScript | Responsive Web Design
+            </p>
+            <ul class="list-none space-y-2 mb-4">
+              <li class="flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-green-500" viewBox="0 0 20 20"
+                  fill="currentColor">
+                  <path fill-rule="evenodd"
+                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                    clip-rule="evenodd" />
+                </svg>
+                Implemented responsive web design to ensure compatibility
+                across various devices and screen sizes.
+              </li>
+              <li class="flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-green-500" viewBox="0 0 20 20"
+                  fill="currentColor">
+                  <path fill-rule="evenodd"
+                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                    clip-rule="evenodd" />
+                </svg>
+                Supported the team in troubleshooting and debugging issues to
+                ensure the smooth functioning of the website.
+              </li>
+              <li class="flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-green-500" viewBox="0 0 20 20"
+                  fill="currentColor">
+                  <path fill-rule="evenodd"
+                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                    clip-rule="evenodd" />
+                </svg>
+                Contributed to the creation and optimization of web pages,
+                enhancing user experience and performance.
+              </li>
+            </ul>
+            <div class="flex space-x-4 mt-4">
+              <a href="https://sweet-donut-1ca8e9.netlify.app/" target="_blank"
+                class="flex items-center text-blue-500 hover:text-blue-600">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd"
+                    d="M12.586 4.586a2 2 0 112.828 2.828l-3 3a2 2 0 01-2.828 0 1 1 0 00-1.414 1.414 4 4 0 005.656 0l3-3a4 4 0 00-5.656-5.656l-1.5 1.5a1 1 0 101.414 1.414l1.5-1.5zm-5 5a2 2 0 012.828 0 1 1 0 101.414-1.414 4 4 0 00-5.656 0l-3 3a4 4 0 105.656 5.656l1.5-1.5a1 1 0 10-1.414-1.414l-1.5 1.5a2 2 0 11-2.828-2.828l3-3z"
+                    clip-rule="evenodd" />
+                </svg>
+                Netlify
+              </a>
+              <a href="https://github.com/Chandrikavishwas/Design-Discus_032" target="_blank"
+                class="flex items-center text-blue-500 hover:text-blue-600">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd"
+                    d="M10 0C4.477 0 0 4.477 0 10c0 4.42 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.564 9.564 0 0110 4.844c.85.004 1.705.115 2.504.337 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.579.688.481C17.137 18.163 20 14.418 20 10c0-5.523-4.477-10-10-10z"
+                    clip-rule="evenodd" />
+                </svg>
+                GitHub
+              </a>
+            </div>
+          </div>
+        </div>
+        <div
+          class="project-card bg-primary rounded-lg shadow-lg overflow-hidden transform transition-all duration-300 hover:scale-105"
+          data-aos="fade-up" data-aos-delay="200">
+          <div class="p-6">
+            <h3 class="text-2xl font-bold mb-2">Digital Era</h3>
+            <p class="text-secondary mb-4">
+              JavaScript | HTML5 | CSS3 | Responsive Web Design
+            </p>
+            <ul class="list-none space-y-2 mb-4">
+              <li class="flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-green-500" viewBox="0 0 20 20"
+                  fill="currentColor">
+                  <path fill-rule="evenodd"
+                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                    clip-rule="evenodd" />
+                </svg>
+                Implemented responsive web design techniques ensuring the
+                application adapts seamlessly to various devices and screen
+                sizes.
+              </li>
+              <li class="flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-green-500" viewBox="0 0 20 20"
+                  fill="currentColor">
+                  <path fill-rule="evenodd"
+                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                    clip-rule="evenodd" />
+                </svg>
+                Integrated a dark mode feature to enhance user experience and
+                provide visual comfort.
+              </li>
+              <li class="flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-green-500" viewBox="0 0 20 20"
+                  fill="currentColor">
+                  <path fill-rule="evenodd"
+                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                    clip-rule="evenodd" />
+                </svg>
+                Collaborated with team members to ensure code quality and
+                adherence to best practices.
+              </li>
+              <li class="flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-green-500" viewBox="0 0 20 20"
+                  fill="currentColor">
+                  <path fill-rule="evenodd"
+                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                    clip-rule="evenodd" />
+                </svg>
+                Performed extensive debugging and troubleshooting to ensure
+                application stability and reliability.
+              </li>
+            </ul>
+            <div class="flex space-x-4 mt-4">
+              <a href="https://jocular-moxie-2e5f36.netlify.app" target="_blank"
+                class="flex items-center text-blue-500 hover:text-blue-600">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd"
+                    d="M12.586 4.586a2 2 0 112.828 2.828l-3 3a2 2 0 01-2.828 0 1 1 0 00-1.414 1.414 4 4 0 005.656 0l3-3a4 4 0 00-5.656-5.656l-1.5 1.5a1 1 0 101.414 1.414l1.5-1.5zm-5 5a2 2 0 012.828 0 1 1 0 101.414-1.414 4 4 0 00-5.656 0l-3 3a4 4 0 105.656 5.656l1.5-1.5a1 1 0 10-1.414-1.414l-1.5 1.5a2 2 0 11-2.828-2.828l3-3z"
+                    clip-rule="evenodd" />
+                </svg>
+                Netlify
+              </a>
+              <a href="https://github.com/Rupeshfuse/Digital-Era" target="_blank"
+                class="flex items-center text-blue-500 hover:text-blue-600">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd"
+                    d="M10 0C4.477 0 0 4.477 0 10c0 4.42 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.564 9.564 0 0110 4.844c.85.004 1.705.115 2.504.337 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.579.688.481C17.137 18.163 20 14.418 20 10c0-5.523-4.477-10-10-10z"
+                    clip-rule="evenodd" />
+                </svg>
+                GitHub
+              </a>
             </div>
           </div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section id="skills" class="py-20 bg-secondary">
-      <div class="container mx-auto px-6">
-        <h2 class="text-3xl font-bold mb-8 text-center" data-aos="fade-up">
-          Technical Skills
-        </h2>
-        <div class="flex flex-wrap justify-center">
-          <div class="skill-hexagon" data-aos="zoom-in" data-aos-delay="100">
-            <span class="text-lg font-semibold">Python</span>
-          </div>
-          <div class="skill-hexagon" data-aos="zoom-in" data-aos-delay="200">
-            <span class="text-lg font-semibold">Java</span>
-          </div>
-          <div class="skill-hexagon" data-aos="zoom-in" data-aos-delay="300">
-            <span class="text-lg font-semibold">HTML5</span>
-          </div>
-          <div class="skill-hexagon" data-aos="zoom-in" data-aos-delay="400">
-            <span class="text-lg font-semibold">CSS3</span>
-          </div>
-          <div class="skill-hexagon" data-aos="zoom-in" data-aos-delay="500">
-            <span class="text-lg font-semibold">JavaScript</span>
-          </div>
-          <div class="skill-hexagon" data-aos="zoom-in" data-aos-delay="600">
-            <span class="text-lg font-semibold">React</span>
-          </div>
-          <div class="skill-hexagon" data-aos="zoom-in" data-aos-delay="700">
-            <span class="text-lg font-semibold">Redux</span>
-          </div>
-          <div class="skill-hexagon" data-aos="zoom-in" data-aos-delay="800">
-            <span class="text-lg font-semibold">MySQL</span>
-          </div>
-          <div class="skill-hexagon" data-aos="zoom-in" data-aos-delay="900">
-            <span class="text-lg font-semibold">Node.js</span>
-          </div>
-          <div class="skill-hexagon" data-aos="zoom-in" data-aos-delay="1000">
-            <span class="text-lg font-semibold">Firebase</span>
-          </div>
-          <div class="skill-hexagon" data-aos="zoom-in" data-aos-delay="1100">
-            <span class="text-lg font-semibold">Hibernate</span>
-          </div>
-          <div class="skill-hexagon" data-aos="zoom-in" data-aos-delay="1200">
-            <span class="text-lg font-semibold">Spring Boot</span>
-          </div>
+  <section id="project-videos" class="py-20 bg-primary">
+    <div class="container mx-auto px-6">
+      <h2 class="text-3xl font-bold mb-8 text-center" data-aos="fade-up">
+        Project Showcases
+      </h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+        <div class="project-video" data-aos="zoom-in">
+          <video src="./nykaa.mp4" autoplay loop muted playsinline class="w-full rounded-lg shadow-lg"></video>
+        </div>
+        <div class="project-video" data-aos="zoom-in" data-aos-delay="100">
+          <video src="./Nykaa2.mp4" autoplay loop muted playsinline class="w-full rounded-lg shadow-lg"></video>
+        </div>
+        <div class="project-video" data-aos="zoom-in" data-aos-delay="200">
+          <video src="./DE1.mp4" autoplay loop muted playsinline class="w-full rounded-lg shadow-lg"></video>
+        </div>
+        <div class="project-video" data-aos="zoom-in" data-aos-delay="300">
+          <video src="./DE2.mp4" autoplay loop muted playsinline class="w-full rounded-lg shadow-lg"></video>
+        </div>
+        <div class="project-video" data-aos="zoom-in" data-aos-delay="400">
+          <video src="./DE3.mp4" autoplay loop muted playsinline class="w-full rounded-lg shadow-lg"></video>
+        </div>
+        <div class="project-video" data-aos="zoom-in" data-aos-delay="500">
+          <video src="./DE4.mp4" autoplay loop muted playsinline class="w-full rounded-lg shadow-lg"></video>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section id="experience" class="py-20 bg-primary">
-      <div class="container mx-auto px-6">
-        <h2 class="text-3xl font-bold mb-8 text-center" data-aos="fade-up">
-          Work Experience
-        </h2>
-        <div class="timeline" data-aos="fade-up">
-          <div class="timeline-item">
-            <div class="timeline-content">
-              <h3 class="text-xl font-bold mb-2">Associate Developer</h3>
-              <p class="text-secondary mb-2">
-                Sapiens Technologies Private Limited - Bangalore, India
-              </p>
-              <p class="text-secondary mb-4">
-                December 2022 - January 2024&nbsp;&nbsp;( 1 Year 2 Months )
-              </p>
-              <ul class="list-disc list-inside">
-                <li>
-                  Developed and deployed highly scalable web applications,
-                  achieving a 30% increase in user engagement and 20% reduction
-                  in page load time, enhancing user experience.
-                </li>
-                <li>
-                  Collaborated with cross-functional teams, including designers
-                  and product managers, to deliver high-quality software
-                  solutions within challenging deadlines.
-                </li>
-                <li>
-                  Enhanced application responsiveness by optimizing database
-                  performance, reducing query execution time by 40%.
-                </li>
-                <li>
-                  Demonstrated expertise in both back-end and front-end
-                  development at the document level. Played a pivotal role in
-                  ensuring thorough documentation, enhancing the clarity and
-                  maintainability of the codebase.
-                </li>
-              </ul>
-            </div>
-          </div>
+  <section id="github-stats" class="py-20 bg-secondary">
+    <div class="container mx-auto px-6">
+      <h2 class="text-3xl font-bold mb-8 text-center" data-aos="fade-up">
+        GitHub Stats
+      </h2>
+      <div class="flex flex-wrap justify-center">
+        <div class="w-full md:w-1/2 p-4" data-aos="fade-right">
+          <img alt="my stats"
+            src="https://github-readme-stats.vercel.app/api?username=Rupeshfuse&show_icons=true&theme=highcontrast"
+            class="w-full" style="width: 100%; height: auto;" />
         </div>
-      </div>
-    </section>
-
-    <section id="projects" class="py-20 bg-secondary">
-      <div class="container mx-auto px-6">
-        <h2 class="text-3xl font-bold mb-12 text-center" data-aos="fade-up">
-          Projects
-        </h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <div
-            class="project-card bg-primary rounded-lg shadow-lg overflow-hidden transform transition-all duration-300 hover:scale-105"
-            data-aos="fade-up"
-          >
-            <div class="p-6">
-              <h3 class="text-2xl font-bold mb-2">ABSA Company Insurance</h3>
-              <p class="text-secondary mb-4">
-                HTML5 | CSS3 | JavaScript | Java | Responsive Web Design | React
-                | MySQL
-              </p>
-              <ul class="list-none space-y-2 mb-4">
-                <li class="flex items-center">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="h-5 w-5 mr-2 text-green-500"
-                    viewBox="0 0 20 20"
-                    fill="currentColor"
-                  >
-                    <path
-                      fill-rule="evenodd"
-                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                      clip-rule="evenodd"
-                    />
-                  </svg>
-                  Collaborated with a large team to implement solutions and meet
-                  project requirements.
-                </li>
-                <li class="flex items-center">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="h-5 w-5 mr-2 text-green-500"
-                    viewBox="0 0 20 20"
-                    fill="currentColor"
-                  >
-                    <path
-                      fill-rule="evenodd"
-                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                      clip-rule="eveno
-dd"
-                    />
-                  </svg>
-                  Troubleshooted and debugged issues to ensure application
-                  stability and reliability.
-                </li>
-                <li class="flex items-center">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="h-5 w-5 mr-2 text-green-500"
-                    viewBox="0 0 20 20"
-                    fill="currentColor"
-                  >
-                    <path
-                      fill-rule="evenodd"
-                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                      clip-rule="evenodd"
-                    />
-                  </svg>
-                  Contributed to the development of insurance-related features
-                  like policy creation and claims processing.
-                </li>
-                <li class="flex items-center">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="h-5 w-5 mr-2 text-green-500"
-                    viewBox="0 0 20 20"
-                    fill="currentColor"
-                  >
-                    <path
-                      fill-rule="evenodd"
-                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                      clip-rule="evenodd"
-                    />
-                  </svg>
-                  Created and maintained comprehensive documentation to support
-                  ongoing development and onboarding of new team members.
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div
-            class="project-card bg-primary rounded-lg shadow-lg overflow-hidden transform transition-all duration-300 hover:scale-105"
-            data-aos="fade-up"
-            data-aos-delay="200"
-          >
-            <div class="p-6">
-              <h3 class="text-2xl font-bold mb-2">Bangkok Insurance</h3>
-              <p class="text-secondary mb-4">
-                HTML5 | CSS3 | JavaScript | Java | Responsive Web Design | React
-                | MySQL
-              </p>
-              <ul class="list-none space-y-2 mb-4">
-                <li class="flex items-center">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="h-5 w-5 mr-2 text-green-500"
-                    viewBox="0 0 20 20"
-                    fill="currentColor"
-                  >
-                    <path
-                      fill-rule="evenodd"
-                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                      clip-rule="evenodd"
-                    />
-                  </svg>
-                  Collaborated with a large team of developers to create and
-                  claim insurance policies using modern web technologies.
-                </li>
-                <li class="flex items-center">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="h-5 w-5 mr-2 text-green-500"
-                    viewBox="0 0 20 20"
-                    fill="currentColor"
-                  >
-                    <path
-                      fill-rule="evenodd"
-                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                      clip-rule="evenodd"
-                    />
-                  </svg>
-                  Implemented backend logic in Java to streamline policy
-                  processing and database interactions using MySQL.
-                </li>
-                <li class="flex items-center">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="h-5 w-5 mr-2 text-green-500"
-                    viewBox="0 0 20 20"
-                    fill="currentColor"
-                  >
-                    <path
-                      fill-rule="evenodd"
-                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                      clip-rule="evenodd"
-                    />
-                  </svg>
-                  Troubleshoot and debugged issues effectively to ensure the
-                  smooth operation of the application.
-                </li>
-                <li class="flex items-center">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="h-5 w-5 mr-2 text-green-500"
-                    viewBox="0 0 20 20"
-                    fill="currentColor"
-                  >
-                    <path
-                      fill-rule="evenodd"
-                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                      clip-rule="evenodd"
-                    />
-                  </svg>
-                  Created and maintained comprehensive documentation to support
-                  ongoing development and onboarding of new team members.
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div
-            class="project-card bg-primary rounded-lg shadow-lg overflow-hidden transform transition-all duration-300 hover:scale-105"
-            data-aos="fade-up"
-          >
-            <div class="p-6">
-              <h3 class="text-2xl font-bold mb-2">
-                Clone of E-Commerce Website
-              </h3>
-              <p class="text-secondary mb-4">
-                HTML5 | CSS3 | JavaScript | Responsive Web Design
-              </p>
-              <ul class="list-none space-y-2 mb-4">
-                <li class="flex items-center">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="h-5 w-5 mr-2 text-green-500"
-                    viewBox="0 0 20 20"
-                    fill="currentColor"
-                  >
-                    <path
-                      fill-rule="evenodd"
-                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                      clip-rule="evenodd"
-                    />
-                  </svg>
-                  Implemented responsive web design to ensure compatibility
-                  across various devices and screen sizes.
-                </li>
-                <li class="flex items-center">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="h-5 w-5 mr-2 text-green-500"
-                    viewBox="0 0 20 20"
-                    fill="currentColor"
-                  >
-                    <path
-                      fill-rule="evenodd"
-                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                      clip-rule="evenodd"
-                    />
-                  </svg>
-                  Supported the team in troubleshooting and debugging issues to
-                  ensure the smooth functioning of the website.
-                </li>
-                <li class="flex items-center">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="h-5 w-5 mr-2 text-green-500"
-                    viewBox="0 0 20 20"
-                    fill="currentColor"
-                  >
-                    <path
-                      fill-rule="evenodd"
-                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                      clip-rule="evenodd"
-                    />
-                  </svg>
-                  Contributed to the creation and optimization of web pages,
-                  enhancing user experience and performance.
-                </li>
-              </ul>
-              <div class="flex space-x-4 mt-4">
-                <a
-                  href="https://sweet-donut-1ca8e9.netlify.app/"
-                  target="_blank"
-                  class="flex items-center text-blue-500 hover:text-blue-600"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="h-5 w-5 mr-2"
-                    viewBox="0 0 20 20"
-                    fill="currentColor"
-                  >
-                    <path
-                      fill-rule="evenodd"
-                      d="M12.586 4.586a2 2 0 112.828 2.828l-3 3a2 2 0 01-2.828 0 1 1 0 00-1.414 1.414 4 4 0 005.656 0l3-3a4 4 0 00-5.656-5.656l-1.5 1.5a1 1 0 101.414 1.414l1.5-1.5zm-5 5a2 2 0 012.828 0 1 1 0 101.414-1.414 4 4 0 00-5.656 0l-3 3a4 4 0 105.656 5.656l1.5-1.5a1 1 0 10-1.414-1.414l-1.5 1.5a2 2 0 11-2.828-2.828l3-3z"
-                      clip-rule="evenodd"
-                    />
-                  </svg>
-                  Netlify
-                </a>
-                <a
-                  href="https://github.com/Chandrikavishwas/Design-Discus_032"
-                  target="_blank"
-                  class="flex items-center text-blue-500 hover:text-blue-600"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="h-5 w-5 mr-2"
-                    viewBox="0 0 20 20"
-                    fill="currentColor"
-                  >
-                    <path
-                      fill-rule="evenodd"
-                      d="M10 0C4.477 0 0 4.477 0 10c0 4.42 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.564 9.564 0 0110 4.844c.85.004 1.705.115 2.504.337 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.579.688.481C17.137 18.163 20 14.418 20 10c0-5.523-4.477-10-10-10z"
-                      clip-rule="evenodd"
-                    />
-                  </svg>
-                  GitHub
-                </a>
-              </div>
-            </div>
-          </div>
-          <div
-            class="project-card bg-primary rounded-lg shadow-lg overflow-hidden transform transition-all duration-300 hover:scale-105"
-            data-aos="fade-up"
-            data-aos-delay="200"
-          >
-            <div class="p-6">
-              <h3 class="text-2xl font-bold mb-2">Digital Era</h3>
-              <p class="text-secondary mb-4">
-                JavaScript | HTML5 | CSS3 | Responsive Web Design
-              </p>
-              <ul class="list-none space-y-2 mb-4">
-                <li class="flex items-center">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="h-5 w-5 mr-2 text-green-500"
-                    viewBox="0 0 20 20"
-                    fill="currentColor"
-                  >
-                    <path
-                      fill-rule="evenodd"
-                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                      clip-rule="evenodd"
-                    />
-                  </svg>
-                  Implemented responsive web design techniques ensuring the
-                  application adapts seamlessly to various devices and screen
-                  sizes.
-                </li>
-                <li class="flex items-center">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="h-5 w-5 mr-2 text-green-500"
-                    viewBox="0 0 20 20"
-                    fill="currentColor"
-                  >
-                    <path
-                      fill-rule="evenodd"
-                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                      clip-rule="evenodd"
-                    />
-                  </svg>
-                  Integrated a dark mode feature to enhance user experience and
-                  provide visual comfort.
-                </li>
-                <li class="flex items-center">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="h-5 w-5 mr-2 text-green-500"
-                    viewBox="0 0 20 20"
-                    fill="currentColor"
-                  >
-                    <path
-                      fill-rule="evenodd"
-                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                      clip-rule="evenodd"
-                    />
-                  </svg>
-                  Collaborated with team members to ensure code quality and
-                  adherence to best practices.
-                </li>
-                <li class="flex items-center">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="h-5 w-5 mr-2 text-green-500"
-                    viewBox="0 0 20 20"
-                    fill="currentColor"
-                  >
-                    <path
-                      fill-rule="evenodd"
-                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                      clip-rule="evenodd"
-                    />
-                  </svg>
-                  Performed extensive debugging and troubleshooting to ensure
-                  application stability and reliability.
-                </li>
-              </ul>
-              <div class="flex space-x-4 mt-4">
-                <a
-                  href="https://jocular-moxie-2e5f36.netlify.app"
-                  target="_blank"
-                  class="flex items-center text-blue-500 hover:text-blue-600"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="h-5 w-5 mr-2"
-                    viewBox="0 0 20 20"
-                    fill="currentColor"
-                  >
-                    <path
-                      fill-rule="evenodd"
-                      d="M12.586 4.586a2 2 0 112.828 2.828l-3 3a2 2 0 01-2.828 0 1 1 0 00-1.414 1.414 4 4 0 005.656 0l3-3a4 4 0 00-5.656-5.656l-1.5 1.5a1 1 0 101.414 1.414l1.5-1.5zm-5 5a2 2 0 012.828 0 1 1 0 101.414-1.414 4 4 0 00-5.656 0l-3 3a4 4 0 105.656 5.656l1.5-1.5a1 1 0 10-1.414-1.414l-1.5 1.5a2 2 0 11-2.828-2.828l3-3z"
-                      clip-rule="evenodd"
-                    />
-                  </svg>
-                  Netlify
-                </a>
-                <a
-                  href="https://github.com/Rupeshfuse/Digital-Era"
-                  target="_blank"
-                  class="flex items-center text-blue-500 hover:text-blue-600"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="h-5 w-5 mr-2"
-                    viewBox="0 0 20 20"
-                    fill="currentColor"
-                  >
-                    <path
-                      fill-rule="evenodd"
-                      d="M10 0C4.477 0 0 4.477 0 10c0 4.42 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.564 9.564 0 0110 4.844c.85.004 1.705.115 2.504.337 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.579.688.481C17.137 18.163 20 14.418 20 10c0-5.523-4.477-10-10-10z"
-                      clip-rule="evenodd"
-                    />
-                  </svg>
-                  GitHub
-                </a>
-              </div>
-            </div>
-          </div>
+        <div class="w-full md:w-1/2 p-4" data-aos="fade-left">
+          <img alt="my lang"
+            src="https://github-readme-stats.vercel.app/api/top-langs/?username=Rupeshfuse&layout=compact&theme=highcontrast"
+            class="w-full"  />
         </div>
-      </div>
-    </section>
-
-    <section id="project-videos" class="py-20 bg-primary">
-      <div class="container mx-auto px-6">
-        <h2 class="text-3xl font-bold mb-8 text-center" data-aos="fade-up">
-          Project Showcases
-        </h2>
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-          <div class="project-video" data-aos="zoom-in">
-            <video
-              src="./nykaa.mp4"
-              autoplay
-              loop
-              muted
-              playsinline
-              class="w-full rounded-lg shadow-lg"
-            ></video>
-          </div>
-          <div class="project-video" data-aos="zoom-in" data-aos-delay="100">
-            <video
-              src="./Nykaa2.mp4"
-              autoplay
-              loop
-              muted
-              playsinline
-              class="w-full rounded-lg shadow-lg"
-            ></video>
-          </div>
-          <div class="project-video" data-aos="zoom-in" data-aos-delay="200">
-            <video
-              src="./DE1.mp4"
-              autoplay
-              loop
-              muted
-              playsinline
-              class="w-full rounded-lg shadow-lg"
-            ></video>
-          </div>
-          <div class="project-video" data-aos="zoom-in" data-aos-delay="300">
-            <video
-              src="./DE2.mp4"
-              autoplay
-              loop
-              muted
-              playsinline
-              class="w-full rounded-lg shadow-lg"
-            ></video>
-          </div>
-          <div class="project-video" data-aos="zoom-in" data-aos-delay="400">
-            <video
-              src="./DE3.mp4"
-              autoplay
-              loop
-              muted
-              playsinline
-              class="w-full rounded-lg shadow-lg"
-            ></video>
-          </div>
-          <div class="project-video" data-aos="zoom-in" data-aos-delay="500">
-            <video
-              src="./DE4.mp4"
-              autoplay
-              loop
-              muted
-              playsinline
-              class="w-full rounded-lg shadow-lg"
-            ></video>
-          </div>
+        <div class="w-full md:w-1/2 p-4" data-aos="fade-right">
+          <img src="https://github-readme-streak-stats.herokuapp.com/?user=Rupeshfuse&theme=radical" alt="GitHub Streak"
+            data-aos="zoom-in" data-aos-delay="200" style="width: 100%; height: auto;" />
         </div>
-      </div>
-    </section>
 
-    <section id="github-stats" class="py-20 bg-secondary">
-      <div class="container mx-auto px-6">
-        <h2 class="text-3xl font-bold mb-8 text-center" data-aos="fade-up">
-          GitHub Stats
-        </h2>
-        <div class="flex flex-wrap justify-center">
-          <div class="w-full md:w-1/2 p-4" data-aos="fade-right">
-            <img
-              alt="my stats"
-              src="https://github-readme-stats.vercel.app/api?username=Rupeshfuse&show_icons=true&theme=highcontrast"
-              class="w-full"
-            />
+      </div>
+    </div>
+    </div>
+    </div>
+  </section>
+
+  <section id="contact" class="py-20 bg-primary">
+    <div class="container mx-auto px-6">
+      <h2 class="text-3xl font-bold mb-8 text-center" data-aos="fade-up">
+        Get in Touch
+      </h2>
+      <div class="max-w-lg mx-auto">
+        <form action="#" method="POST" class="space-y-6">
+          <div>
+            <label for="name" class="block text-sm font-medium text-secondary">Name</label>
+            <input type="text" id="name" name="name" required
+              class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50" />
           </div>
-          <div class="w-full md:w-1/2 p-4" data-aos="fade-left">
-            <img
-              alt="my lang"
-              src="https://github-readme-stats.vercel.app/api/top-langs/?username=Rupeshfuse&layout=compact&theme=highcontrast"
-              class="w-full"
-            />
+          <div>
+            <label for="email" class="block text-sm font-medium text-secondary">Email</label>
+            <input type="email" id="email" name="email" required
+              class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50" />
           </div>
-        </div>
+          <div>
+            <label for="message" class="block text-sm font-medium text-secondary">Message</label>
+            <textarea id="message" name="message" rows="4" required
+              class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50"></textarea>
+          </div>
+          <div>
+            <button type="submit"
+              class="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+              Send Message
+            </button>
+          </div>
+        </form>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section id="contact" class="py-20 bg-primary">
-      <div class="container mx-auto px-6">
-        <h2 class="text-3xl font-bold mb-8 text-center" data-aos="fade-up">
-          Get in Touch
-        </h2>
-        <div class="max-w-lg mx-auto">
-          <form action="#" method="POST" class="space-y-6">
-            <div>
-              <label for="name" class="block text-sm font-medium text-secondary"
-                >Name</label
-              >
-              <input
-                type="text"
-                id="name"
-                name="name"
-                required
-                class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50"
-              />
-            </div>
-            <div>
-              <label
-                for="email"
-                class="block text-sm font-medium text-secondary"
-                >Email</label
-              >
-              <input
-                type="email"
-                id="email"
-                name="email"
-                required
-                class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50"
-              />
-            </div>
-            <div>
-              <label
-                for="message"
-                class="block text-sm font-medium text-secondary"
-                >Message</label
-              >
-              <textarea
-                id="message"
-                name="message"
-                rows="4"
-                required
-                class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50"
-              ></textarea>
-            </div>
-            <div>
-              <button
-                type="submit"
-                class="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
-              >
-                Send Message
-              </button>
-            </div>
-          </form>
-        </div>
-      </div>
-    </section>
+  <footer class="bg-secondary py-6 sm:py-8">
+    <div class="container mx-auto px-4 sm:px-6 text-center">
+      <p class="text-secondary text-sm sm:text-base">
+        &copy; 2024 Rupesh Fuse. All rights reserved.
+      </p>
+    </div>
+  </footer>
 
-    <footer class="bg-secondary py-6 sm:py-8">
-      <div class="container mx-auto px-4 sm:px-6 text-center">
-        <p class="text-secondary text-sm sm:text-base">
-          &copy; 2024 Rupesh Fuse. All rights reserved.
-        </p>
-      </div>
-    </footer>
+  <script>
+    AOS.init({
+      duration: 1000,
+      once: true,
+    });
 
-    <script>
-      AOS.init({
-        duration: 1000,
-        once: true,
-      });
+    const darkModeToggle = document.getElementById("darkModeToggle");
+    const darkModeToggleMobile = document.getElementById(
+      "darkModeToggleMobile"
+    );
+    const body = document.body;
+    const mobileMenuToggle = document.getElementById("mobileMenuToggle");
+    const mobileMenu = document.getElementById("mobileMenu");
 
-      const darkModeToggle = document.getElementById("darkModeToggle");
-      const darkModeToggleMobile = document.getElementById(
-        "darkModeToggleMobile"
+    function toggleDarkMode() {
+      body.classList.toggle("light-mode");
+    }
+
+    darkModeToggle.addEventListener("click", toggleDarkMode);
+    darkModeToggleMobile.addEventListener("click", toggleDarkMode);
+
+    mobileMenuToggle.addEventListener("click", () => {
+      mobileMenu.classList.toggle("hidden");
+    });
+
+    document
+      .getElementById("downloadResume")
+      .addEventListener("click", downloadResume);
+    document
+      .getElementById("downloadResumeMobile")
+      .addEventListener("click", downloadResume);
+
+    function downloadResume(e) {
+      e.preventDefault();
+      window.open(
+        "https://drive.google.com/drive/folders/1m_rQfUjXjCMURWf6g6yBlLgcw25e7tQL?usp=sharing",
+        "_blank"
       );
-      const body = document.body;
-      const mobileMenuToggle = document.getElementById("mobileMenuToggle");
-      const mobileMenu = document.getElementById("mobileMenu");
+    }
 
-      function toggleDarkMode() {
-        body.classList.toggle("light-mode");
-      }
-
-      darkModeToggle.addEventListener("click", toggleDarkMode);
-      darkModeToggleMobile.addEventListener("click", toggleDarkMode);
-
-      mobileMenuToggle.addEventListener("click", () => {
-        mobileMenu.classList.toggle("hidden");
+    const mobileMenuLinks = mobileMenu.querySelectorAll("a");
+    mobileMenuLinks.forEach((link) => {
+      link.addEventListener("click", () => {
+        mobileMenu.classList.add("hidden");
       });
+    });
 
-      document
-        .getElementById("downloadResume")
-        .addEventListener("click", downloadResume);
-      document
-        .getElementById("downloadResumeMobile")
-        .addEventListener("click", downloadResume);
-
-      function downloadResume(e) {
-        e.preventDefault();
-        window.open(
-          "https://drive.google.com/drive/folders/1m_rQfUjXjCMURWf6g6yBlLgcw25e7tQL?usp=sharing",
-          "_blank"
-        );
+    function handleResponsive() {
+      if (window.innerWidth >= 768) {
+        mobileMenu.classList.add("hidden");
       }
+    }
 
-      const mobileMenuLinks = mobileMenu.querySelectorAll("a");
-      mobileMenuLinks.forEach((link) => {
-        link.addEventListener("click", () => {
-          mobileMenu.classList.add("hidden");
-        });
-      });
+    window.addEventListener("resize", handleResponsive);
+    handleResponsive();
+  </script>
+</body>
 
-      function handleResponsive() {
-        if (window.innerWidth >= 768) {
-          mobileMenu.classList.add("hidden");
-        }
-      }
-
-      window.addEventListener("resize", handleResponsive);
-      handleResponsive();
-    </script>
-  </body>
 </html>
