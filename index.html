@@ -755,19 +755,26 @@ dd" />
     });
 
     document
-      .getElementById("downloadResume")
-      .addEventListener("click", downloadResume);
-    document
-      .getElementById("downloadResumeMobile")
-      .addEventListener("click", downloadResume);
+  .getElementById("downloadResume")
+  .addEventListener("click", downloadResume);
+document
+  .getElementById("downloadResumeMobile")
+  .addEventListener("click", downloadResume);
 
-    function downloadResume(e) {
-      e.preventDefault();
-      window.open(
-        "https://drive.google.com/drive/folders/1m_rQfUjXjCMURWf6g6yBlLgcw25e7tQL?usp=sharing",
-        "_blank"
-      );
-    }
+function downloadResume(e) {
+  e.preventDefault();
+
+  const link = document.createElement("a");
+  link.href =
+    "./Resume Masai.pdf"; 
+  link.download = "Rupesh Fuse.pdf"; 
+
+  document.body.appendChild(link);
+  link.click();
+
+  document.body.removeChild(link);
+}
+
 
     const mobileMenuLinks = mobileMenu.querySelectorAll("a");
     mobileMenuLinks.forEach((link) => {
