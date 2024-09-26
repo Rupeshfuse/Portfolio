@@ -215,6 +215,11 @@
         transform: scale(1.05);
       }
 
+      .highlight {
+        color: rgb(128, 0, 255);
+        font-weight: bold;
+        font-style: italic;
+      }
       @keyframes float {
         0% {
           transform: translateY(0px);
@@ -391,32 +396,35 @@
         <div class="flex flex-wrap items-center">
           <div class="w-full md:w-1/2" data-aos="fade-right">
             <p class="text-lg mb-4">
-              Dynamic Full Stack Developer with expertise in Python, HTML5,
-              CSS3, JavaScript, React, Redux, Java, and Spring Boot. Skilled in
-              building and maintaining web applications, with a strong focus on
-              both front-end and back-end development. Known for precise
-              documentation and delivering efficient, scalable solutions.
+              Dynamic Full Stack Developer with expertise in
+              <span class="highlight"
+                >Python, HTML5, CSS3, JavaScript, React, Redux, Java, and Spring
+                Boot </span
+              >. Skilled in building and maintaining web applications, with a
+              strong focus on both front-end and back-end development. Known for
+              precise <span class="highlight">documentation</span> and
+              delivering efficient, scalable solutions.
             </p>
-            <p class="text-lg mb-4">
-              Based in Sambhaji Nagar, Maharashtra, India, I'm passionate about
-              creating innovative web solutions and constantly expanding my
-              skillset.
-            </p>
-            <div class="flex space-x-4">
+
+            <div class="flex space-x-8">
               <a
                 href="https://github.com/Rupeshfuse"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="accent-color hover:text-blue-300"
-                >GitHub</a
+                class="accent-color hover:text-blue-300 mt-2"
+                style="font-size: 20px"
               >
+                GitHub
+              </a>
               <a
                 href="https://www.linkedin.com/in/rupesh-fuse-2876a3179"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="accent-color hover:text-blue-300"
-                >LinkedIn</a
+                class="accent-color hover:text-blue-300 mt-2"
+                style="font-size: 20px"
               >
+                LinkedIn
+              </a>
             </div>
           </div>
         </div>
@@ -1291,13 +1299,16 @@
       function downloadResume(e) {
         e.preventDefault();
 
+        const resumeUrl = "./Rupesh Fuse Resume.pdf";
+
+        window.open(resumeUrl, "_blank");
+
         const link = document.createElement("a");
-        link.href = "./Resume Masai.pdf";
+        link.href = resumeUrl;
         link.download = "Rupesh Fuse Resume.pdf";
 
         document.body.appendChild(link);
         link.click();
-
         document.body.removeChild(link);
       }
 
